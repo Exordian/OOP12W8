@@ -1,12 +1,18 @@
 
-public class Traktor {
+public abstract class Traktor {
 	
+	private static int IDnummer = 1;
 	protected final int id;
 	private int betriebsstunden;
 	protected Einsatzart einsatzart;
 	
-	public Traktor(int id) {
-		this.id = id;
+	public Traktor() {
+		this.id = Traktor.IDnummer;
+		Traktor.IDnummer++;
+	}
+	
+	public int getID() {
+		return this.id;
 	}
 	
 	public void setBetriebsstunden(int betriebsstunden) {
@@ -23,12 +29,6 @@ public class Traktor {
 		return this.einsatzart;
 	}
 	
-	public String getName() {
-		return "Ich bin ein Traktor mit der ID " +this.id;
-	}
+	public abstract String toString();
 	
-	public String toString() {
-		return (new Integer(this.id)).toString();
-	}
-
 }

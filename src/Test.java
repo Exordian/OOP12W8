@@ -22,14 +22,39 @@ public class Test {
 		System.out.println(list);
 		*/
 		
-		LinkedList list2 = new LinkedList();
-		list2.append(new Traktor(1));
-		list2.append(new Traktor(2));
-		list2.append(new Traktor(3));
-		System.out.println(list2);
+		Bauernhof bauernhof = new Bauernhof("Mein Bauernhof");
 		
-		System.out.println(((Traktor)list2.find(3).getData()).getName());
+		LinkedList list = new LinkedList();
+		Dieseltraktor d1 = new Dieseltraktor();
+		Dieseltraktor d2 = new Dieseltraktor();
+		Dieseltraktor d3 = new Dieseltraktor();
+		Dieseltraktor d4 = new Dieseltraktor();
+		Biogastraktor b1 = new Biogastraktor();
+		Biogastraktor b2 = new Biogastraktor();
+		Biogastraktor b3 = new Biogastraktor();
 		
+		d1.setBetriebsstunden(3);
+		d2.setBetriebsstunden(100);
+		d3.setBetriebsstunden(29);
+		d4.setBetriebsstunden(77);
+		b1.setBetriebsstunden(10);
+		b2.setBetriebsstunden(98);
+		b3.setBetriebsstunden(5);
+		
+		list.append(d1);
+		list.append(d2);
+		list.append(d3);
+		list.append(d4);
+		list.append(b1);
+		list.append(b2);
+		list.append(b3);
+		
+		System.out.println(list);
+		System.out.println(list.find(b1).getData()); //find b1
+		
+		bauernhof.addTraktorenliste(list);
+		System.out.println();
+		bauernhof.avgBetriebsstunden(); //Durchschnitt Betriebsstunden
 	}
 	
 }
