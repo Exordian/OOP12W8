@@ -108,6 +108,56 @@ public class Bauernhof {
 		return avg;
 	}
 
+	private double getDieselMenge() {
+		double diesel = 0;
+		ObjectIterator it = new ObjectIterator(this.traktoren);
+
+		while(it.hasNext()) {
+			Traktor t = (Traktor)it.getNext();
+			if(t instanceof Dieseltraktor) {
+				diesel += ((Dieseltraktor) t).getLiter();
+			}
+		}
+		return diesel;
+	}
+
+	private double getGasMenge() {
+		double gas = 0;
+		ObjectIterator it = new ObjectIterator(this.traktoren);
+
+		while(it.hasNext()) {
+			Traktor t = (Traktor)it.getNext();
+			if(t instanceof Biogastraktor) {
+				gas += ((Biogastraktor) t).getGas();
+			}
+		}
+		return gas;
+	}
+	/*
+	public double avgDieselVerbrauchDrill() {
+		
+	}
+
+	public double avgDieselVerbrauchDünger() {
+		
+	}
+
+	public double avgDieselVerbrauch() {
+
+	}
+	
+	public double avgGasVerbrauchDrill() {
+		
+	}
+
+	public double avgGasVerbrauchDünger() {
+		
+	}
+
+	public double avgGasVerbrauch() {
+
+	}
+*/
 	private int getAnzDüngerTraktoren() {
 		int count_duengen = 0;
 		ObjectIterator it = new ObjectIterator(this.traktoren);
@@ -172,7 +222,7 @@ public class Bauernhof {
 		return avg_saen;
 	}
 
-	public double avgBetriebsstundenEinsatz() {//TODO codewiederholung
+	public double avgBetriebsstundenEinsatz() {
 		double avg = 0;
 		avg = (getBetriebstundenDüngerTraktoren()+getBetriebstundenDrillTraktoren())/(getAnzDüngerTraktoren()+getAnzDrillTraktoren());
 
@@ -182,6 +232,4 @@ public class Bauernhof {
 
 		return avg;
 	}
-
-
 }
