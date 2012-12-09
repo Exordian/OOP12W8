@@ -48,6 +48,9 @@ public class Test {
 		b2.setBetriebsstunden(98);
 		b3.setBetriebsstunden(5);
 		
+		d1.setEinsatzart(new Drillmaschine(100));
+		b1.setEinsatzart(new Düngerstreuer(100));
+		
 		list.append(d1);
 		list.append(d2);
 		list.append(d3);
@@ -61,7 +64,9 @@ public class Test {
 		
 		bauernhof.addTraktorenliste(list);
 		System.out.println();
-		bauernhof.avgBetriebsstunden(); //Durchschnitt Betriebsstunden
+		bauernhof.avgBetriebsstundenArt(); //Durchschnitt Betriebsstunden
+		System.out.println();
+		bauernhof.avgBetriebsstundenEinsatz();
 	}
 	
 }
