@@ -49,7 +49,8 @@ public class Bauernhof {
 
 	/*----------------------------------------1-------------------------------------------------*/
 
-	private<T extends Einsatzart> int getAnzEinsatzart(Class<T> trk) {
+	private int getAnzEinsatzart(Class trk) {
+		//trk has to be an instance of Einsatzart
 		int count = 0;
 		TraktorIterator it = new TraktorIterator(this.traktoren);
 		while(it.hasNext()) {
@@ -62,7 +63,8 @@ public class Bauernhof {
 		//returns number of tractors with either drill machine or fertilizer
 	}
 
-	private<T extends Einsatzart> int getBetriebstundenEinsatzart(Class<T> trk) {
+	private int getBetriebstundenEinsatzart(Class trk) {
+		//trk has to be an instance of Einsatzart
 		int sum = 0;
 
 		TraktorIterator it = new TraktorIterator(this.traktoren);
@@ -119,7 +121,8 @@ public class Bauernhof {
 
 	/*----------------------------------------2-------------------------------------------------*/
 
-	private <T extends Traktor> int getBetriebstundenAntrieb(Class<T> trk) {
+	private int getBetriebstundenAntrieb(Class trk) {
+		//trk has to be an instance of Traktor
 		int sum_gas = 0;
 		TraktorIterator it = new TraktorIterator(this.traktoren);
 
@@ -133,7 +136,8 @@ public class Bauernhof {
 		//returns number of operating hours of tractors with motor of either diesel or biogas
 	}
 
-	private <T extends Traktor> int getAnzAntrieb(Class<T> trk) {
+	private int getAnzAntrieb(Class trk) {
+		//trk has to be an instance of Traktor
 		int count_diesel = 0;
 		TraktorIterator it = new TraktorIterator(this.traktoren);
 
@@ -190,7 +194,8 @@ public class Bauernhof {
 
 	/*----------------------------------------3-------------------------------------------------*/
 
-	private <T extends Einsatzart> double getDieselMenge(Class<T> trk) {
+	private double getDieselMenge(Class trk) {
+		//trk has to be an instance of Einsatzart
 		double diesel = 0;
 		TraktorIterator it = new TraktorIterator(this.traktoren);
 
@@ -206,7 +211,8 @@ public class Bauernhof {
 		//returns amount of used diesel
 	}
 
-	private <T extends Einsatzart> int getAnzDieselEinsatzart(Class<T> trk) {
+	private int getAnzDieselEinsatzart(Class trk) {
+		//trk has to be an instance of Einsatzart
 		int anz = 0;
 		TraktorIterator it = new TraktorIterator(this.traktoren);
 
@@ -265,7 +271,8 @@ public class Bauernhof {
 
 	/*----------------------------------------4-------------------------------------------------*/
 
-	private <T extends Einsatzart> float getGasMenge(Class<T> trk) {
+	private float getGasMenge(Class trk) {
+		//trk has to be an instance of Einsatzart
 		float gas = 0;
 		TraktorIterator it = new TraktorIterator(this.traktoren);
 
@@ -281,7 +288,8 @@ public class Bauernhof {
 		//returns amount of used gas
 	}
 
-	private <T extends Einsatzart> int getAnzGasEinsatzart(Class<T> trk) {
+	private int getAnzGasEinsatzart(Class trk) {
+		//trk has to be an instance of Einsatzart
 		int anz = 0;
 		TraktorIterator it = new TraktorIterator(this.traktoren);
 
@@ -336,7 +344,8 @@ public class Bauernhof {
 
 	/*----------------------------------------5-------------------------------------------------*/
 
-	private <T extends Traktor> int getMinDrill(Class<T> trk) {
+	private int getMinDrill(Class trk) {
+		//trk has to be an instance of Traktor
 		int min = 0;
 		TraktorIterator it = new TraktorIterator(this.traktoren);
 
@@ -357,7 +366,8 @@ public class Bauernhof {
 		//returns min number of sowing coulters of tractors with drill machines
 	}
 
-	private <T extends Traktor> int getMaxDrill(Class<T> trk) {
+	private int getMaxDrill(Class trk) {
+		//trk has to be an instance of Traktor
 		int max = 0;
 		TraktorIterator it = new TraktorIterator(this.traktoren);
 
@@ -398,7 +408,8 @@ public class Bauernhof {
 
 	/*----------------------------------------6-------------------------------------------------*/
 
-	private <T extends Traktor> float getKapazitaetDuenger(Class<T> trk) {
+	private float getKapazitaetDuenger(Class trk) {
+		//trk has to be an instance of Traktor
 		float kapa = 0;
 		TraktorIterator it = new TraktorIterator(this.traktoren);
 
