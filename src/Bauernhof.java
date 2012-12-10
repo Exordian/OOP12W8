@@ -58,30 +58,23 @@ public class Bauernhof {
 		return sum;
 	}
 
-	public double avgBetriebsstundenDuenger() {
+	public String avgBetriebsstundenDuenger() {
 		double avg_duengen = 0;
 		avg_duengen = getBetriebstundenEinsatzart(Duengerstreuer.class)/getAnzEinsatzart(Duengerstreuer.class);
-		System.out.println("Durchschnitt Betriebsstunden Duengerstreuer:  " +avg_duengen);
-		return avg_duengen;
+		return "Durchschnitt Betriebsstunden Duengerstreuer:  " +avg_duengen;
 	}
 
-	public double avgBetriebsstundenDrill() {
+	public String avgBetriebsstundenDrill() {
 		double avg_saen = 0;
 		avg_saen = getBetriebstundenEinsatzart(Drillmaschine.class)/getAnzEinsatzart(Drillmaschine.class);
-		System.out.println("Durchschnitt Betriebsstunden Drillmaschinen:  " +avg_saen);
-		return avg_saen;
+		return "Durchschnitt Betriebsstunden Drillmaschinen:  " +avg_saen;
 	}
 
-	public double avgBetriebsstundenEinsatz() {
+	public String avgBetriebsstundenEinsatz() {
 		double avg = 0;
 		avg = (getBetriebstundenEinsatzart(Duengerstreuer.class)+getBetriebstundenEinsatzart(Drillmaschine.class))
 				/(getAnzEinsatzart(Duengerstreuer.class)+getAnzEinsatzart(Drillmaschine.class));
-
-		avgBetriebsstundenDuenger();
-		avgBetriebsstundenDrill();
-		System.out.println("Durchschnitt Traktoren gesamt:                " +avg);
-
-		return avg;
+		return "Durchschnitt Traktoren gesamt: " +avg;
 	}
 
 	/*----------------------------------------2-------------------------------------------------*/
@@ -112,30 +105,23 @@ public class Bauernhof {
 		return count_diesel;
 	}
 
-	public double avgBetriebsstundenDiesel() {
+	public String avgBetriebsstundenDiesel() {
 		double avg_diesel = 0;
 		avg_diesel = getBetriebstundenAntrieb(Dieseltraktor.class)/getAnzAntrieb(Dieseltraktor.class);
-		System.out.println("Durchschnitt Betriebsstunden Dieseltraktoren: " +avg_diesel);
-		return avg_diesel;
+		return "Durchschnitt Betriebsstunden Dieseltraktoren: " +avg_diesel;
 	}	
 
-	public double avgBetriebsstundenGas() {
+	public String avgBetriebsstundenGas() {
 		double avg_biogas = 0;
 		avg_biogas = getBetriebstundenAntrieb(Biogastraktor.class)/getAnzAntrieb(Biogastraktor.class);
-		System.out.println("Durchschnitt Betriebsstunden Biogastraktoren: " +avg_biogas);
-		return avg_biogas;
+		return "Durchschnitt Betriebsstunden Biogastraktoren: " +avg_biogas;
 	}
 
-	public double avgBetriebsstundenArt() {
+	public String avgBetriebsstundenArt() {
 		double avg = 0;
 		avg = (getBetriebstundenAntrieb(Dieseltraktor.class)+getBetriebstundenAntrieb(Biogastraktor.class))/
 				(getAnzAntrieb(Biogastraktor.class)+getAnzAntrieb(Biogastraktor.class));
-
-		avgBetriebsstundenDiesel();
-		avgBetriebsstundenGas();
-		System.out.println("Durchschnitt Traktoren gesamt:                " +avg);
-
-		return avg;
+		return "Durchschnitt Traktoren gesamt: " +avg;
 	}
 
 	/*----------------------------------------3-------------------------------------------------*/
@@ -170,30 +156,23 @@ public class Bauernhof {
 		return anz;
 	}
 
-	public double avgDieselVerbrauchDrill() {
+	public String avgDieselVerbrauchDrill() {
 		double avg = 0;
 		avg = getDieselMenge(Drillmaschine.class)/getAnzDieselEinsatzart(Drillmaschine.class);
-		System.out.println("Durchschnitt Dieselverbrauch Drillmaschinen: " +avg);
-		return avg;
+		return "Durchschnitt Dieselverbrauch Drillmaschinen: " +avg;
 	}
 
-	public double avgDieselVerbrauchDuenger() {
+	public String avgDieselVerbrauchDuenger() {
 		double avg = 0;
 		avg = getDieselMenge(Duengerstreuer.class)/getAnzDieselEinsatzart(Duengerstreuer.class);
-		System.out.println("Durchschnitt Dieselverbrauch Duengerstreuer: " +avg);
-		return avg;
+		return "Durchschnitt Dieselverbrauch Duengerstreuer: " +avg;
 	}
 
-	public double avgDieselVerbrauch() {
+	public String avgDieselVerbrauch() {
 		double avg = 0;
 		avg = (getDieselMenge(Drillmaschine.class)+getDieselMenge(Duengerstreuer.class))/
 				(getAnzDieselEinsatzart(Drillmaschine.class)+getAnzDieselEinsatzart(Duengerstreuer.class));
-
-		avgDieselVerbrauchDrill();
-		avgDieselVerbrauchDuenger();
-		System.out.println("Durchschnitt Dieselverbrauch gesamt:                " +avg);
-
-		return avg;
+		return "Durchschnitt Dieselverbrauch gesamt: " +avg;
 	}
 
 	/*----------------------------------------4-------------------------------------------------*/
@@ -228,30 +207,23 @@ public class Bauernhof {
 		return anz;
 	}
 
-	public float avgGasVerbrauchDrill() {
+	public String avgGasVerbrauchDrill() {
 		float avg = 0;
 		avg = getGasMenge(Drillmaschine.class)/getAnzGasEinsatzart(Drillmaschine.class);
-		System.out.println("Durchschnitt Biogasverbrauch Drillmaschinen: " +avg);
-		return avg;
+		return "Durchschnitt Biogasverbrauch Drillmaschinen: " +avg;
 	}
 
-	public float avgGasVerbrauchDuenger() {
+	public String avgGasVerbrauchDuenger() {
 		float avg = 0;
 		avg = getGasMenge(Duengerstreuer.class)/getAnzGasEinsatzart(Duengerstreuer.class);
-		System.out.println("Durchschnitt Biogasverbrauch Duengerstreuer: " +avg);
-		return avg;
+		return "Durchschnitt Biogasverbrauch Duengerstreuer: " +avg;
 	}
 
-	public float avgGasVerbrauch() {
+	public String avgGasVerbrauch() {
 		float avg = 0;
 		avg = (getGasMenge(Drillmaschine.class)+getGasMenge(Duengerstreuer.class))/
 				(getAnzGasEinsatzart(Drillmaschine.class)+getAnzGasEinsatzart(Duengerstreuer.class));
-
-		avgGasVerbrauchDrill();
-		avgGasVerbrauchDuenger();
-		System.out.println("Durchschnitt Biogasverbrauch gesamt:                " +avg);
-
-		return avg;
+		return "Durchschnitt Biogasverbrauch gesamt: " +avg;
 	}
 
 	/*----------------------------------------5-------------------------------------------------*/
@@ -293,22 +265,21 @@ public class Bauernhof {
 		return max;
 	}
 	
-	public void AnzSaescharenDiesel() {
-		System.out.println("Min Anzahl Saescharen Diesel: " +getMinDrill(Dieseltraktor.class) +
-				"\nMax Anzahl Saescharen Diesel" + getMaxDrill(Dieseltraktor.class));
+	public String AnzSaescharenDiesel() {
+		return "Min Anzahl Saescharen Diesel: " +getMinDrill(Dieseltraktor.class) +
+				"\nMax Anzahl Saescharen Diesel" + getMaxDrill(Dieseltraktor.class);
 	}
 
-	public void AnzSaescharenBiogas() {
-		System.out.println("Min Anzahl Saescharen Biogas: " +getMinDrill(Biogastraktor.class) +
-				"\nMax Anzahl Saescharen Biogas" + getMaxDrill(Biogastraktor.class));
+	public String AnzSaescharenBiogas() {
+		return "Min Anzahl Saescharen Biogas: " +getMinDrill(Biogastraktor.class) +
+				"\nMax Anzahl Saescharen Biogas" + getMaxDrill(Biogastraktor.class);
 	}
 
-	public void AnzSaescharenGesamt() {
+	public String AnzSaescharenGesamt() {
 		int max = getMaxDrill(Biogastraktor.class) + getMaxDrill(Dieseltraktor.class);
 		int min = getMinDrill(Biogastraktor.class) + getMinDrill(Dieseltraktor.class);
 		
-		System.out.println("Min Anzahl Saescharen: " + min +
-				"\nMax Anzahl Saescharen" + max);
+		return "Min Anzahl Saescharen: " + min + "\nMax Anzahl Saescharen" + max;
 	}
 
 	/*----------------------------------------6-------------------------------------------------*/
@@ -328,29 +299,22 @@ public class Bauernhof {
 		return kapa;
 	}
 
-	public float avgDuengerKapazitaetDiesel() {
+	public String avgDuengerKapazitaetDiesel() {
 		float avg = 0;
 		avg = getKapazitaetDuenger(Dieseltraktor.class)/getAnzDieselEinsatzart(Duengerstreuer.class);
-		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer mit Diesel: " +avg);
-		return avg;
+		return "Durchschnitt Fassungskapazitaet Duengerstreuer mit Diesel: " +avg;
 	}
 
-	public float avgDuengerKapazitaetGas() {
+	public String avgDuengerKapazitaetGas() {
 		float avg = 0;
 		avg = getKapazitaetDuenger(Biogastraktor.class)/getAnzGasEinsatzart(Duengerstreuer.class);
-		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer mit Biogas: " +avg);
-		return avg;
+		return "Durchschnitt Fassungskapazitaet Duengerstreuer mit Biogas: " +avg;
 	}
 
-	public float avgDuengerKapazitaet() {
+	public String avgDuengerKapazitaet() {
 		float avg = 0;
 		avg = (getKapazitaetDuenger(Dieseltraktor.class)+getKapazitaetDuenger(Biogastraktor.class))/
 				(getAnzDieselEinsatzart(Duengerstreuer.class)+getAnzGasEinsatzart(Duengerstreuer.class));
-
-		avgDuengerKapazitaetDiesel();
-		avgDuengerKapazitaetGas();
-		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer gesamt:      " +avg);
-
-		return avg;
+		return "Durchschnitt Fassungskapazitaet Duengerstreuer gesamt: " +avg;
 	}
 }

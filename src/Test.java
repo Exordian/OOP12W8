@@ -41,10 +41,8 @@ public class Test {
 		System.out.println(list.find(b1).getData()); //find b1
 		
 		bauernhof.addTraktorenliste(list);
-		System.out.println();
-		bauernhof.avgBetriebsstundenArt(); //Durchschnitt Betriebsstunden
-		System.out.println();
-		bauernhof.avgBetriebsstundenEinsatz();
+		System.out.println(bauernhof.avgBetriebsstundenArt());
+		System.out.println(bauernhof.avgBetriebsstundenEinsatz());
 	}
 	
 }
