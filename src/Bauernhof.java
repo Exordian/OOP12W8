@@ -76,26 +76,38 @@ public class Bauernhof {
 		//returns number of operating hours of tractors with either drill machine or fertilizer
 	}
 
-	public double avgBetriebsstundenDuenger() {
+	public double avgBetriebsstundenDuenger() throws DivisionByNullException {
 		double avg_duengen = 0;
-		avg_duengen = getBetriebstundenEinsatzart(Duengerstreuer.class)/getAnzEinsatzart(Duengerstreuer.class);
+		double nenner = getAnzEinsatzart(Duengerstreuer.class);
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
+		avg_duengen = getBetriebstundenEinsatzart(Duengerstreuer.class)/nenner;
 		System.out.println("Durchschnitt Betriebsstunden Duengerstreuer:  " +avg_duengen);
 		return avg_duengen;
 		//returns average of operating hours of tractors with fertilizer
 	}
 
-	public double avgBetriebsstundenDrill() {
+	public double avgBetriebsstundenDrill() throws DivisionByNullException {
 		double avg_saen = 0;
-		avg_saen = getBetriebstundenEinsatzart(Drillmaschine.class)/getAnzEinsatzart(Drillmaschine.class);
+		double nenner = getAnzEinsatzart(Drillmaschine.class);
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
+		avg_saen = getBetriebstundenEinsatzart(Drillmaschine.class)/nenner;
 		System.out.println("Durchschnitt Betriebsstunden Drillmaschinen:  " +avg_saen);
 		return avg_saen;
 		//returns average of operating hours of tractors with drill machine
 	}
 
-	public double avgBetriebsstundenEinsatz() {
+	public double avgBetriebsstundenEinsatz() throws DivisionByNullException {
 		double avg = 0;
+		double nenner = (getAnzEinsatzart(Duengerstreuer.class)+getAnzEinsatzart(Drillmaschine.class));
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
 		avg = (getBetriebstundenEinsatzart(Duengerstreuer.class)+getBetriebstundenEinsatzart(Drillmaschine.class))
-				/(getAnzEinsatzart(Duengerstreuer.class)+getAnzEinsatzart(Drillmaschine.class));
+				/nenner;
 
 		avgBetriebsstundenDuenger();
 		avgBetriebsstundenDrill();
@@ -135,26 +147,38 @@ public class Bauernhof {
 		//returns number of tractors with motor of either diesel or biogas
 	}
 
-	public double avgBetriebsstundenDiesel() {
+	public double avgBetriebsstundenDiesel() throws DivisionByNullException {
 		double avg_diesel = 0;
-		avg_diesel = getBetriebstundenAntrieb(Dieseltraktor.class)/getAnzAntrieb(Dieseltraktor.class);
+		double nenner = getAnzAntrieb(Dieseltraktor.class);
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
+		avg_diesel = getBetriebstundenAntrieb(Dieseltraktor.class)/nenner;
 		System.out.println("Durchschnitt Betriebsstunden Dieseltraktoren: " +avg_diesel);
 		return avg_diesel;
 		//returns average of operating hours of diesel tractors
 	}	
 
-	public double avgBetriebsstundenGas() {
+	public double avgBetriebsstundenGas() throws DivisionByNullException {
 		double avg_biogas = 0;
-		avg_biogas = getBetriebstundenAntrieb(Biogastraktor.class)/getAnzAntrieb(Biogastraktor.class);
+		double nenner = getAnzAntrieb(Biogastraktor.class);
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
+		avg_biogas = getBetriebstundenAntrieb(Biogastraktor.class)/nenner;
 		System.out.println("Durchschnitt Betriebsstunden Biogastraktoren: " +avg_biogas);
 		return avg_biogas;
 		//returns average of operating hours of biogas tractors
 	}
 
-	public double avgBetriebsstundenArt() {
+	public double avgBetriebsstundenArt() throws DivisionByNullException {
 		double avg = 0;
+		double nenner = (getAnzAntrieb(Biogastraktor.class)+getAnzAntrieb(Biogastraktor.class));
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
 		avg = (getBetriebstundenAntrieb(Dieseltraktor.class)+getBetriebstundenAntrieb(Biogastraktor.class))/
-				(getAnzAntrieb(Biogastraktor.class)+getAnzAntrieb(Biogastraktor.class));
+				nenner;
 
 		avgBetriebsstundenDiesel();
 		avgBetriebsstundenGas();
@@ -198,26 +222,38 @@ public class Bauernhof {
 		//returns number of dieseltractors
 	}
 
-	public double avgDieselVerbrauchDrill() {
+	public double avgDieselVerbrauchDrill() throws DivisionByNullException {
 		double avg = 0;
-		avg = getDieselMenge(Drillmaschine.class)/getAnzDieselEinsatzart(Drillmaschine.class);
+		double nenner = getAnzDieselEinsatzart(Drillmaschine.class);
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
+		avg = getDieselMenge(Drillmaschine.class)/nenner;
 		System.out.println("Durchschnitt Dieselverbrauch Drillmaschinen: " +avg);
 		return avg;
 		//returns average diesel consumption of tractors with drill machine
 	}
 
-	public double avgDieselVerbrauchDuenger() {
+	public double avgDieselVerbrauchDuenger() throws DivisionByNullException {
 		double avg = 0;
-		avg = getDieselMenge(Duengerstreuer.class)/getAnzDieselEinsatzart(Duengerstreuer.class);
+		double nenner = getAnzDieselEinsatzart(Duengerstreuer.class);
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
+		avg = getDieselMenge(Duengerstreuer.class)/nenner;
 		System.out.println("Durchschnitt Dieselverbrauch Duengerstreuer: " +avg);
 		return avg;
 		//returns average diesel consumption of tractors with fertilizer
 	}
 
-	public double avgDieselVerbrauch() {
+	public double avgDieselVerbrauch() throws DivisionByNullException {
 		double avg = 0;
+		double nenner = (getAnzDieselEinsatzart(Drillmaschine.class)+getAnzDieselEinsatzart(Duengerstreuer.class));
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
 		avg = (getDieselMenge(Drillmaschine.class)+getDieselMenge(Duengerstreuer.class))/
-				(getAnzDieselEinsatzart(Drillmaschine.class)+getAnzDieselEinsatzart(Duengerstreuer.class));
+				nenner;
 
 		avgDieselVerbrauchDrill();
 		avgDieselVerbrauchDuenger();
@@ -269,18 +305,26 @@ public class Bauernhof {
 		//returns average gas consumption of tractors with drill machine
 	}
 
-	public float avgGasVerbrauchDuenger() {
+	public float avgGasVerbrauchDuenger() throws DivisionByNullException {
 		float avg = 0;
-		avg = getGasMenge(Duengerstreuer.class)/getAnzGasEinsatzart(Duengerstreuer.class);
+		float nenner = getAnzGasEinsatzart(Duengerstreuer.class);
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
+		avg = getGasMenge(Duengerstreuer.class)/nenner;
 		System.out.println("Durchschnitt Biogasverbrauch Duengerstreuer: " +avg);
 		return avg;
 		//returns average gas consumption of tractors with fertilizer
 	}
 
-	public float avgGasVerbrauch() {
+	public float avgGasVerbrauch() throws DivisionByNullException {
 		float avg = 0;
+		float nenner = (getAnzGasEinsatzart(Drillmaschine.class)+getAnzGasEinsatzart(Duengerstreuer.class));
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
 		avg = (getGasMenge(Drillmaschine.class)+getGasMenge(Duengerstreuer.class))/
-				(getAnzGasEinsatzart(Drillmaschine.class)+getAnzGasEinsatzart(Duengerstreuer.class));
+				nenner;
 
 		avgGasVerbrauchDrill();
 		avgGasVerbrauchDuenger();
@@ -370,26 +414,38 @@ public class Bauernhof {
 		//returns capacity of fertilizer
 	}
 
-	public float avgDuengerKapazitaetDiesel() {
+	public float avgDuengerKapazitaetDiesel() throws DivisionByNullException {
 		float avg = 0;
-		avg = getKapazitaetDuenger(Dieseltraktor.class)/getAnzDieselEinsatzart(Duengerstreuer.class);
+		float nenner = getAnzDieselEinsatzart(Duengerstreuer.class);
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
+		avg = getKapazitaetDuenger(Dieseltraktor.class)/nenner;
 		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer mit Diesel: " +avg);
 		return avg;
 		//returns average of capacity of fertilizer of diesel tractor
 	}
 
-	public float avgDuengerKapazitaetGas() {
+	public float avgDuengerKapazitaetGas() throws DivisionByNullException {
 		float avg = 0;
-		avg = getKapazitaetDuenger(Biogastraktor.class)/getAnzGasEinsatzart(Duengerstreuer.class);
+		float nenner = getAnzGasEinsatzart(Duengerstreuer.class);
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
+		avg = getKapazitaetDuenger(Biogastraktor.class)/nenner;
 		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer mit Biogas: " +avg);
 		return avg;
 		//returns average of capacity of fertilizer of biogas tractor
 	}
 
-	public float avgDuengerKapazitaet() {
+	public float avgDuengerKapazitaet() throws DivisionByNullException {
 		float avg = 0;
+		float nenner = (getAnzDieselEinsatzart(Duengerstreuer.class)+getAnzGasEinsatzart(Duengerstreuer.class));
+		if(nenner == 0) {
+			throw new DivisionByNullException();
+		}
 		avg = (getKapazitaetDuenger(Dieseltraktor.class)+getKapazitaetDuenger(Biogastraktor.class))/
-				(getAnzDieselEinsatzart(Duengerstreuer.class)+getAnzGasEinsatzart(Duengerstreuer.class));
+				nenner;
 
 		avgDuengerKapazitaetDiesel();
 		avgDuengerKapazitaetGas();
