@@ -5,7 +5,7 @@
  * @since December 2012
  *
  */
-@Writer("Florian Schuster")
+@Writer("Lena Lenz")
 public class Biogastraktor extends Traktor {
 	
 	private float gas;
