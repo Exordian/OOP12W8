@@ -5,6 +5,7 @@
  * @since December 2012
  *
  */
+@Writer("Lena Lenz")
 public class LinkedList {
 	
 	private Node head;
