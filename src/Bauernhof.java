@@ -8,15 +8,24 @@
 public class Bauernhof {
 
 	private final String name;
-	private LinkedList traktoren;
+	private TraktorList traktoren;
 
 	public Bauernhof(String name) {
 		this.name = name;
-		this.traktoren = new LinkedList();
+		this.traktoren = new TraktorList();
 	}
 
-	public void addTraktorenliste(LinkedList traktoren) {
-		this.traktoren = traktoren;
+	public void addTraktorList(TraktorList traktoren) {
+		ObjectIterator it = new ObjectIterator(traktoren);
+		Traktor elem = null;
+		while(it.hasNext()) {
+			elem = (Traktor)it.getNext();
+			this.insert(elem);
+		}
+	}
+	
+	public TraktorList getTraktorList() {
+		return this.traktoren;
 	}
 
 	public void insert(Traktor t) {
@@ -228,7 +237,7 @@ public class Bauernhof {
 
 		avgBetriebsstundenDuenger();
 		avgBetriebsstundenDrill();
-		System.out.println("Durchschnitt Traktoren gesamt:               " +avg);
+		System.out.println("Durchschnitt Traktoren gesamt:                " +avg);
 
 		return avg;
 	}

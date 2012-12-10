@@ -7,9 +7,9 @@
  */
 public class LinkedList {
 	
-	private Node head;
-	private Node tail;
-	private int size;
+	protected Node head;
+	protected Node tail;
+	protected int size;
 	
 	public LinkedList() {
 		this.head = null;

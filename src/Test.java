@@ -8,30 +8,11 @@
 public class Test {
 	
 	public static void main(String[] args) {
-		/*
-		LinkedList list = new LinkedList();
-		list.append(new Integer(1));
-		list.append(new Integer(2));
-		list.append(new Integer(3));
 		
-		list.prepend(new Integer(4));
-		list.prepend(new Integer(5));
-		
-		System.out.println(list);
-		
-		list.remove(new Integer(3));
-		System.out.println(list);
-		
-		list.remove(new Integer(5));
-		System.out.println(list);
-		
-		list.remove(new Integer(1));
-		System.out.println(list);
-		*/
-		
+		//Bauernhof 1
 		Bauernhof bauernhof = new Bauernhof("Mein Bauernhof");
 		
-		LinkedList list = new LinkedList();
+		TraktorList list = new TraktorList();
 		Dieseltraktor d1 = new Dieseltraktor();
 		Dieseltraktor d2 = new Dieseltraktor();
 		Dieseltraktor d3 = new Dieseltraktor();
@@ -62,11 +43,47 @@ public class Test {
 		System.out.println(list);
 		System.out.println(list.find(b1).getData()); //find b1
 		
-		bauernhof.addTraktorenliste(list);
+		bauernhof.addTraktorList(list);
 		System.out.println();
 		bauernhof.avgBetriebsstundenArt(); //Durchschnitt Betriebsstunden
 		System.out.println();
 		bauernhof.avgBetriebsstundenEinsatz();
+		
+		//Bauernhof 2
+		Bauernhof bauernhof2 = new Bauernhof("Mein 2. Bauernhof");
+		
+		TraktorList list2 = new TraktorList();
+		Dieseltraktor d5 = new Dieseltraktor();
+		Dieseltraktor d6 = new Dieseltraktor();
+		Dieseltraktor d7 = new Dieseltraktor();
+		Dieseltraktor d8 = new Dieseltraktor();
+		Biogastraktor b4 = new Biogastraktor();
+		Biogastraktor b5 = new Biogastraktor();
+		Biogastraktor b6 = new Biogastraktor();
+		Biogastraktor b7 = new Biogastraktor();
+		
+		list2.append(d5);
+		list2.append(d6);
+		list2.append(d7);
+		list2.append(d8);
+		list2.append(b4);
+		list2.append(b5);
+		list2.append(b6);
+		list2.append(b7);
+		
+		System.out.println();
+		
+		//***BauernhofMap***
+		System.out.println("***BAUERNHOFMAP***");
+		System.out.println();
+		BauernhofMap b_map = new BauernhofMap();
+		
+		b_map.putBauernhof(bauernhof);
+		b_map.putTraktorList(bauernhof2, list2);
+		
+		System.out.println("Bauernhof zu Traktor mit ID "+ d5.getID() +": "+ b_map.getKey(d5).getName());
+		System.out.println();
+		System.out.println(b_map);
 	}
 	
 }
