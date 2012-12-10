@@ -6,10 +6,7 @@
  *
  */
 public class Test {
-	
 	public static void main(String[] args) {
-		
-		//Bauernhof 1
 		Bauernhof bauernhof = new Bauernhof("Mein Bauernhof");
 		
 		TraktorList list = new TraktorList();

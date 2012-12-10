@@ -7,14 +7,14 @@
  */
 public class Drillmaschine implements Einsatzart {
 	
-	private int anzSäschare;
+	private int anzSaeschare;
 	
-	public Drillmaschine(int anzSäschare) {
-		this.anzSäschare = anzSäschare;
+	public Drillmaschine(int anzSaeschare) {
+		this.anzSaeschare = anzSaeschare;
 	}
 	
-	public int getAnzSäschare() {
-		return this.anzSäschare;
+	public int getAnzSaeschare() {
+		return this.anzSaeschare;
 	}
 
 }

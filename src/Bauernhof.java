@@ -20,7 +20,8 @@ public class Bauernhof {
 		Traktor elem = null;
 		while(it.hasNext()) {
 			elem = (Traktor)it.getNext();
-			this.insert(elem);
+			if(this.traktoren.find(elem) == null) //tractor does not already exist in this tractorlist
+				this.insert(elem);
 		}
 	}
 	
@@ -29,7 +30,8 @@ public class Bauernhof {
 	}
 
 	public void insert(Traktor t) {
-		traktoren.append(t);
+		if(this.traktoren.find(t) == null) //tractor does not already exist in this tractorlist
+			traktoren.append(t);
 	}
 
 	public void remove(Traktor t) {
