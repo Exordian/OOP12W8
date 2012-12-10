@@ -30,6 +30,7 @@ public abstract class ObjectIterator {
 		node = node.getNext();
 		cur_index++;
 		return ret;
+		//returns next element
 	}
 	
 }

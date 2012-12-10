@@ -22,6 +22,7 @@ public class Biogastraktor extends Traktor {
 	public float getGas() {
 		return this.gas;
 	}
+	
 	public void setGas(float gas) {
 		this.gas = gas;
 	}

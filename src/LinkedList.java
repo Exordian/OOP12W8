@@ -20,6 +20,7 @@ public abstract class LinkedList {
 	
 	protected Node getHead() {
 		return this.head;
+		//returns first element of list
 	}
 	
 	protected void append(Object o) {
@@ -31,6 +32,7 @@ public abstract class LinkedList {
 			n.getPrevious().setNext(tail);
 		}
 		size++;
+		//object o has been appended to list
 	}
 	
 	protected void prepend(Object o) {
@@ -42,6 +44,7 @@ public abstract class LinkedList {
 			n.getNext().setPrevious(head);
 		}
 		size++;
+		//object o has been prepended to list
 	}
 	
 	protected Node find(Object o) {
@@ -51,6 +54,7 @@ public abstract class LinkedList {
 				break;
 		}
 		return temp;
+		//returns node which contains specified object o 
 	}
 	
 	protected Object remove(Object o) {
@@ -78,10 +82,12 @@ public abstract class LinkedList {
 		
 		size--;
 		return ret;
+		//object o has been removed and returned
 	}
 	
 	protected int getSize() {
 		return this.size;
+		//returns size
 	}
 	
 	public String toString() {
@@ -91,6 +97,7 @@ public abstract class LinkedList {
 			buf.append('\n');
 		}
 		return buf.toString();
+		//returns output string of list
 	}
 	
 }

@@ -22,6 +22,7 @@ public class Dieseltraktor extends Traktor {
 	public int getLiter() {
 		return this.liter;
 	}
+	
 	public void setLiter(int liter) {
 		this.liter = liter;
 	}

@@ -8,7 +8,7 @@
 @Writer("Florian Schuster")
 public class Bauernhof {
 
-	private final String name;
+	private final String name; //identifies farm
 	private TraktorList traktoren;
 
 	public Bauernhof(String name) {
@@ -24,6 +24,7 @@ public class Bauernhof {
 			if(this.traktoren.find(elem) == null) //tractor does NOT already exist in this tractorlist
 				this.insert(elem);
 		}
+		//tractorlist has been added(only tractors which did not already exist in tractorlist)
 	}
 	
 	public TraktorList getTraktorList() {
@@ -33,14 +34,17 @@ public class Bauernhof {
 	public void insert(Traktor t) {
 		if(this.traktoren.find(t) == null) //tractor does NOT already exist in this tractorlist
 			traktoren.append(t);
+		//tractor has been inserted(if he did not already exist in tractorlist)
 	}
 
 	public void remove(Traktor t) {
 		traktoren.remove(t);
+		//tractor has been removed
 	}
 
 	public String getName() {
 		return this.name;
+		//returns name of farm(which identifies each farm)
 	}
 
 	/*----------------------------------------1-------------------------------------------------*/
@@ -55,6 +59,7 @@ public class Bauernhof {
 			}
 		}
 		return count;
+		//returns number of tractors with either drill machine or fertilizer
 	}
 
 	private<T extends Einsatzart> int getBetriebstundenEinsatzart(Class<T> trk) {
@@ -68,6 +73,7 @@ public class Bauernhof {
 			}
 		}
 		return sum;
+		//returns number of operating hours of tractors with either drill machine or fertilizer
 	}
 
 	public double avgBetriebsstundenDuenger() {
@@ -75,6 +81,7 @@ public class Bauernhof {
 		avg_duengen = getBetriebstundenEinsatzart(Duengerstreuer.class)/getAnzEinsatzart(Duengerstreuer.class);
 		System.out.println("Durchschnitt Betriebsstunden Duengerstreuer:  " +avg_duengen);
 		return avg_duengen;
+		//returns average of operating hours of tractors with fertilizer
 	}
 
 	public double avgBetriebsstundenDrill() {
@@ -82,6 +89,7 @@ public class Bauernhof {
 		avg_saen = getBetriebstundenEinsatzart(Drillmaschine.class)/getAnzEinsatzart(Drillmaschine.class);
 		System.out.println("Durchschnitt Betriebsstunden Drillmaschinen:  " +avg_saen);
 		return avg_saen;
+		//returns average of operating hours of tractors with drill machine
 	}
 
 	public double avgBetriebsstundenEinsatz() {
@@ -94,6 +102,7 @@ public class Bauernhof {
 		System.out.println("Durchschnitt Traktoren gesamt:                " +avg);
 
 		return avg;
+		//returns average of operating hours of tractors with fertilizer/drill machine
 	}
 
 	/*----------------------------------------2-------------------------------------------------*/
@@ -109,6 +118,7 @@ public class Bauernhof {
 			}
 		}
 		return sum_gas;
+		//returns number of operating hours of tractors with motor of either diesel or biogas
 	}
 
 	private <T extends Traktor> int getAnzAntrieb(Class<T> trk) {
@@ -122,6 +132,7 @@ public class Bauernhof {
 			}
 		}
 		return count_diesel;
+		//returns number of tractors with motor of either diesel or biogas
 	}
 
 	public double avgBetriebsstundenDiesel() {
@@ -129,6 +140,7 @@ public class Bauernhof {
 		avg_diesel = getBetriebstundenAntrieb(Dieseltraktor.class)/getAnzAntrieb(Dieseltraktor.class);
 		System.out.println("Durchschnitt Betriebsstunden Dieseltraktoren: " +avg_diesel);
 		return avg_diesel;
+		//returns average of operating hours of diesel tractors
 	}	
 
 	public double avgBetriebsstundenGas() {
@@ -136,6 +148,7 @@ public class Bauernhof {
 		avg_biogas = getBetriebstundenAntrieb(Biogastraktor.class)/getAnzAntrieb(Biogastraktor.class);
 		System.out.println("Durchschnitt Betriebsstunden Biogastraktoren: " +avg_biogas);
 		return avg_biogas;
+		//returns average of operating hours of biogas tractors
 	}
 
 	public double avgBetriebsstundenArt() {
@@ -148,6 +161,7 @@ public class Bauernhof {
 		System.out.println("Durchschnitt Traktoren gesamt:                " +avg);
 
 		return avg;
+		//returns average of operating hours of biogas/diesel tractors
 	}
 
 	/*----------------------------------------3-------------------------------------------------*/
@@ -165,6 +179,7 @@ public class Bauernhof {
 			}
 		}
 		return diesel;
+		//returns amount of used diesel
 	}
 
 	private <T extends Einsatzart> int getAnzDieselEinsatzart(Class<T> trk) {
@@ -180,6 +195,7 @@ public class Bauernhof {
 			}
 		}
 		return anz;
+		//returns number of dieseltractors
 	}
 
 	public double avgDieselVerbrauchDrill() {
@@ -187,6 +203,7 @@ public class Bauernhof {
 		avg = getDieselMenge(Drillmaschine.class)/getAnzDieselEinsatzart(Drillmaschine.class);
 		System.out.println("Durchschnitt Dieselverbrauch Drillmaschinen: " +avg);
 		return avg;
+		//returns average diesel consumption of tractors with drill machine
 	}
 
 	public double avgDieselVerbrauchDuenger() {
@@ -194,6 +211,7 @@ public class Bauernhof {
 		avg = getDieselMenge(Duengerstreuer.class)/getAnzDieselEinsatzart(Duengerstreuer.class);
 		System.out.println("Durchschnitt Dieselverbrauch Duengerstreuer: " +avg);
 		return avg;
+		//returns average diesel consumption of tractors with fertilizer
 	}
 
 	public double avgDieselVerbrauch() {
@@ -206,6 +224,7 @@ public class Bauernhof {
 		System.out.println("Durchschnitt Dieselverbrauch gesamt:                " +avg);
 
 		return avg;
+		//returns average diesel consumption
 	}
 
 	/*----------------------------------------4-------------------------------------------------*/
@@ -223,6 +242,7 @@ public class Bauernhof {
 			}
 		}
 		return gas;
+		//returns amount of used gas
 	}
 
 	private <T extends Einsatzart> int getAnzGasEinsatzart(Class<T> trk) {
@@ -238,6 +258,7 @@ public class Bauernhof {
 			}
 		}
 		return anz;
+		//returns number of biogastractors
 	}
 
 	public float avgGasVerbrauchDrill() {
@@ -245,6 +266,7 @@ public class Bauernhof {
 		avg = getGasMenge(Drillmaschine.class)/getAnzGasEinsatzart(Drillmaschine.class);
 		System.out.println("Durchschnitt Biogasverbrauch Drillmaschinen: " +avg);
 		return avg;
+		//returns average gas consumption of tractors with drill machine
 	}
 
 	public float avgGasVerbrauchDuenger() {
@@ -252,6 +274,7 @@ public class Bauernhof {
 		avg = getGasMenge(Duengerstreuer.class)/getAnzGasEinsatzart(Duengerstreuer.class);
 		System.out.println("Durchschnitt Biogasverbrauch Duengerstreuer: " +avg);
 		return avg;
+		//returns average gas consumption of tractors with fertilizer
 	}
 
 	public float avgGasVerbrauch() {
@@ -264,6 +287,7 @@ public class Bauernhof {
 		System.out.println("Durchschnitt Biogasverbrauch gesamt:                " +avg);
 
 		return avg;
+		//returns average gas consumption
 	}
 
 	/*----------------------------------------5-------------------------------------------------*/
@@ -286,6 +310,7 @@ public class Bauernhof {
 			}
 		}
 		return min;
+		//returns min number of sowing coulters of tractors with drill machines
 	}
 
 	private <T extends Traktor> int getMaxDrill(Class<T> trk) {
@@ -303,16 +328,19 @@ public class Bauernhof {
 			}
 		}
 		return max;
+		//returns max number of sowing coulters of tractors with drill machines
 	}
 
 	public void AnzSaescharenDiesel() {
 		System.out.println("Min Anzahl Saescharen Diesel: " +getMinDrill(Dieseltraktor.class) +
 				"\nMax Anzahl Saescharen Diesel" + getMaxDrill(Dieseltraktor.class));
+		//prints number of sowing coulters of diesel tractors
 	}
 
 	public void AnzSaescharenBiogas() {
 		System.out.println("Min Anzahl Saescharen Biogas: " +getMinDrill(Biogastraktor.class) +
 				"\nMax Anzahl Saescharen Biogas" + getMaxDrill(Biogastraktor.class));
+		//prints number of sowing coulters of biogas tractors
 	}
 
 	public void AnzSaescharenGesamt() {
@@ -321,6 +349,7 @@ public class Bauernhof {
 
 		System.out.println("Min Anzahl Saescharen: " + min +
 				"\nMax Anzahl Saescharen" + max);
+		//prints number of sowing coulters
 	}
 
 	/*----------------------------------------6-------------------------------------------------*/
@@ -338,6 +367,7 @@ public class Bauernhof {
 			}
 		}
 		return kapa;
+		//returns capacity of fertilizer
 	}
 
 	public float avgDuengerKapazitaetDiesel() {
@@ -345,6 +375,7 @@ public class Bauernhof {
 		avg = getKapazitaetDuenger(Dieseltraktor.class)/getAnzDieselEinsatzart(Duengerstreuer.class);
 		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer mit Diesel: " +avg);
 		return avg;
+		//returns average of capacity of fertilizer of diesel tractor
 	}
 
 	public float avgDuengerKapazitaetGas() {
@@ -352,6 +383,7 @@ public class Bauernhof {
 		avg = getKapazitaetDuenger(Biogastraktor.class)/getAnzGasEinsatzart(Duengerstreuer.class);
 		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer mit Biogas: " +avg);
 		return avg;
+		//returns average of capacity of fertilizer of biogas tractor
 	}
 
 	public float avgDuengerKapazitaet() {
@@ -364,5 +396,6 @@ public class Bauernhof {
 		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer gesamt:      " +avg);
 
 		return avg;
+		//returns average of capacity of fertilizer
 	}
 }

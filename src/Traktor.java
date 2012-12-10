@@ -9,7 +9,7 @@
 public abstract class Traktor {
 	
 	private static int IDnummer = 1;
-	protected final int id;
+	protected final int id; //identifies tractor
 	private int betriebsstunden;
 	protected Einsatzart einsatzart;
 	
@@ -35,7 +35,5 @@ public abstract class Traktor {
 	public Einsatzart getEinsatzart() {
 		return this.einsatzart;
 	}
-	
-	public abstract String toString();
 	
 }

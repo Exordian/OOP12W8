@@ -93,6 +93,7 @@ public class Test {
 		System.out.print(getClassMethodWriters(Einsatzart.class));
 		System.out.print(getClassMethodWriters(LinkedList.class));
 		System.out.print(getClassMethodWriters(Node.class));
+		System.out.print(getClassMethodWriters(BauernhofMap.class));
 		System.out.print(getClassMethodWriters(ObjectIterator.class));
 		System.out.print(getClassMethodWriters(Test.class));
 		System.out.print(getClassMethodWriters(Traktor.class));
