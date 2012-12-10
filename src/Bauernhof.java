@@ -31,7 +31,7 @@ public class Bauernhof {
 		return this.name;
 	}
 
-	/*------------------------------------------------------------------------------------------*/
+	/*----------------------------------------1-------------------------------------------------*/
 
 	private<T extends Einsatzart> int getAnzEinsatzart(Class<T> trk) {
 		int count = 0;
@@ -84,7 +84,7 @@ public class Bauernhof {
 		return avg;
 	}
 
-	/*------------------------------------------------------------------------------------------*/
+	/*----------------------------------------2-------------------------------------------------*/
 
 	private <T extends Traktor> int getBetriebstundenAntrieb(Class<T> trk) {
 		int sum_gas = 0;
@@ -138,7 +138,7 @@ public class Bauernhof {
 		return avg;
 	}
 
-	/*------------------------------------------------------------------------------------------*/
+	/*----------------------------------------3-------------------------------------------------*/
 
 	private <T extends Einsatzart> double getDieselMenge(Class<T> trk) {
 		double diesel = 0;
@@ -196,7 +196,7 @@ public class Bauernhof {
 		return avg;
 	}
 
-	/*------------------------------------------------------------------------------------------*/
+	/*----------------------------------------4-------------------------------------------------*/
 
 	private <T extends Einsatzart> float getGasMenge(Class<T> trk) {
 		float gas = 0;
@@ -254,11 +254,64 @@ public class Bauernhof {
 		return avg;
 	}
 
-	/*------------------------------------------------------------------------------------------*/
+	/*----------------------------------------5-------------------------------------------------*/
 
+	private <T extends Traktor> int getMinDrill(Class<T> trk) {
+		int min = 0;
+		ObjectIterator it = new ObjectIterator(this.traktoren);
 
+		while(it.hasNext()) {
+			Traktor t = (Traktor)it.getNext();
+			if(trk.isInstance(t)) {
+				if (t.getEinsatzart() instanceof Drillmaschine) {
+					if (min == 0) {
+						min = ((Drillmaschine) t.getEinsatzart()).getAnzSaeschare();
+					}
+					if (((Drillmaschine) t.getEinsatzart()).getAnzSaeschare() < min) {
+						min = ((Drillmaschine) t.getEinsatzart()).getAnzSaeschare();
+					}
+				}
+			}
+		}
+		return min;
+	}
+	
+	private <T extends Traktor> int getMaxDrill(Class<T> trk) {
+		int max = 0;
+		ObjectIterator it = new ObjectIterator(this.traktoren);
 
-	/*------------------------------------------------------------------------------------------*/
+		while(it.hasNext()) {
+			Traktor t = (Traktor)it.getNext();
+			if(trk.isInstance(t)) {
+				if (t.getEinsatzart() instanceof Drillmaschine) {
+					if (((Drillmaschine) t.getEinsatzart()).getAnzSaeschare() > max) {
+						max = ((Drillmaschine) t.getEinsatzart()).getAnzSaeschare();
+					}
+				}
+			}
+		}
+		return max;
+	}
+	
+	public void AnzSaescharenDiesel() {
+		System.out.println("Min Anzahl Saescharen Diesel: " +getMinDrill(Dieseltraktor.class) +
+				"\nMax Anzahl Saescharen Diesel" + getMaxDrill(Dieseltraktor.class));
+	}
+
+	public void AnzSaescharenBiogas() {
+		System.out.println("Min Anzahl Saescharen Biogas: " +getMinDrill(Biogastraktor.class) +
+				"\nMax Anzahl Saescharen Biogas" + getMaxDrill(Biogastraktor.class));
+	}
+
+	public void AnzSaescharenGesamt() {
+		int max = getMaxDrill(Biogastraktor.class) + getMaxDrill(Dieseltraktor.class);
+		int min = getMinDrill(Biogastraktor.class) + getMinDrill(Dieseltraktor.class);
+		
+		System.out.println("Min Anzahl Saescharen: " + min +
+				"\nMax Anzahl Saescharen" + max);
+	}
+
+	/*----------------------------------------6-------------------------------------------------*/
 
 	private <T extends Traktor> float getKapazitaetDuenger(Class<T> trk) {
 		float kapa = 0;
