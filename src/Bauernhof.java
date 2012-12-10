@@ -31,75 +31,50 @@ public class Bauernhof {
 		return this.name;
 	}
 
-	private int getBetriebstundenDieselTraktoren() {
-		int sum_diesel = 0;
-		ObjectIterator it = new ObjectIterator(this.traktoren);
-
-		while(it.hasNext()) {
-			Traktor t = (Traktor)it.getNext();
-			if(t instanceof Dieseltraktor) {
-				sum_diesel += ((Dieseltraktor) t).getBetriebsstunden();
-			}
-		}
-		return sum_diesel;
-	}
-
-	private int getBetriebstundenGasTraktoren() {
+	private <T extends Traktor> int getBetriebstundenAntrieb(Class<T> trk) {
 		int sum_gas = 0;
 		ObjectIterator it = new ObjectIterator(this.traktoren);
 
 		while(it.hasNext()) {
 			Traktor t = (Traktor)it.getNext();
-			if(t instanceof Biogastraktor) {
-				sum_gas += ((Biogastraktor) t).getBetriebsstunden();
+			if(trk.isInstance(t)) {
+				sum_gas += t.getBetriebsstunden();
 			}
 		}
 		return sum_gas;
 	}
 
-	private int getAnzDieselTraktoren() {
+	private <T extends Traktor> int getAnzAntrieb(Class<T> trk) {
 		int count_diesel = 0;
 		ObjectIterator it = new ObjectIterator(this.traktoren);
 
 		while(it.hasNext()) {
 			Traktor t = (Traktor)it.getNext();
-			if(t instanceof Dieseltraktor) {
+			if(trk.isInstance(t)) {
 				count_diesel++;
 			}
 		}
 		return count_diesel;
 	}
 
-	private int getAnzGasTraktoren() {
-		int count_gas = 0;
-		ObjectIterator it = new ObjectIterator(this.traktoren);
-
-		while(it.hasNext()) {
-			Traktor t = (Traktor)it.getNext();
-			if(t instanceof Biogastraktor) {
-				count_gas++;
-			}
-		}
-		return count_gas;
-	}
-
 	public double avgBetriebsstundenDiesel() {
 		double avg_diesel = 0;
-		avg_diesel = getBetriebstundenDieselTraktoren()/getAnzDieselTraktoren();
+		avg_diesel = getBetriebstundenAntrieb(Dieseltraktor.class)/getAnzAntrieb(Dieseltraktor.class);
 		System.out.println("Durchschnitt Betriebsstunden Dieseltraktoren: " +avg_diesel);
 		return avg_diesel;
 	}	
 
 	public double avgBetriebsstundenGas() {
 		double avg_biogas = 0;
-		avg_biogas = getBetriebstundenGasTraktoren()/getAnzGasTraktoren();
+		avg_biogas = getBetriebstundenAntrieb(Biogastraktor.class)/getAnzAntrieb(Biogastraktor.class);
 		System.out.println("Durchschnitt Betriebsstunden Biogastraktoren: " +avg_biogas);
 		return avg_biogas;
 	}
 
 	public double avgBetriebsstundenArt() {
 		double avg = 0;
-		avg = (getBetriebstundenDieselTraktoren()+getBetriebstundenGasTraktoren())/(getAnzDieselTraktoren()+getAnzGasTraktoren());
+		avg = (getBetriebstundenAntrieb(Dieseltraktor.class)+getBetriebstundenAntrieb(Biogastraktor.class))/
+				(getAnzAntrieb(Biogastraktor.class)+getAnzAntrieb(Biogastraktor.class));
 
 		avgBetriebsstundenDiesel();
 		avgBetriebsstundenGas();
@@ -108,31 +83,19 @@ public class Bauernhof {
 		return avg;
 	}
 
-	private double getDieselMenge() {
-		double diesel = 0;
+	private<T extends Traktor> double getAntriebsMenge(Class<T> trk) {
+		double menge = 0;
 		ObjectIterator it = new ObjectIterator(this.traktoren);
 
 		while(it.hasNext()) {
 			Traktor t = (Traktor)it.getNext();
-			if(t instanceof Dieseltraktor) {
-				diesel += ((Dieseltraktor) t).getLiter();
+			if(trk.isInstance(t)) {
+				menge += ((Dieseltraktor) t).getLiter();
 			}
 		}
-		return diesel;
+		return menge;
 	}
 
-	private double getGasMenge() {
-		double gas = 0;
-		ObjectIterator it = new ObjectIterator(this.traktoren);
-
-		while(it.hasNext()) {
-			Traktor t = (Traktor)it.getNext();
-			if(t instanceof Biogastraktor) {
-				gas += ((Biogastraktor) t).getGas();
-			}
-		}
-		return gas;
-	}
 	/*
 	public double avgDieselVerbrauchDrill() {
 
@@ -158,77 +121,53 @@ public class Bauernhof {
 
 	}
 	 */
-	private int getAnzDuengerTraktoren() {
-		int count_duengen = 0;
+	private<T extends Einsatzart> int getAnzEinsatzart(Class<T> trk) {
+		int count = 0;
 		ObjectIterator it = new ObjectIterator(this.traktoren);
 		while(it.hasNext()) {
 			Traktor t = (Traktor)it.getNext();
-			if(t.getEinsatzart() instanceof Duengerstreuer) { //duengen
-				count_duengen++;
+			if(trk.isInstance(t.getEinsatzart())) {
+				count++;
 			}
 		}
-		return count_duengen;
+		return count;
 	}
 
-	private int getBetriebstundenDuengerTraktoren() {
-		int sum_duengen = 0;
+	private<T extends Einsatzart> int getBetriebstundenEinsatzart(Class<T> trk) {
+		int sum = 0;
 
 		ObjectIterator it = new ObjectIterator(this.traktoren);
 		while(it.hasNext()) {
 			Traktor t = (Traktor)it.getNext();
-			if(t.getEinsatzart() instanceof Duengerstreuer) { //duengen
-				sum_duengen += t.getBetriebsstunden();
+			if(trk.isInstance(t.getEinsatzart())) {
+				sum += t.getBetriebsstunden();
 			}
 		}
-		return sum_duengen;
-	}
-
-	private int getAnzDrillTraktoren() {
-		int count_saen = 0;
-		ObjectIterator it = new ObjectIterator(this.traktoren);
-		while(it.hasNext()) {
-			Traktor t = (Traktor)it.getNext();
-			if(t.getEinsatzart() instanceof Drillmaschine) { //saeen
-				count_saen++;
-			}
-		}
-		return count_saen;
-	}
-
-	private int getBetriebstundenDrillTraktoren() {
-		int sum_saen = 0;
-
-		ObjectIterator it = new ObjectIterator(this.traktoren);
-		while(it.hasNext()) {
-			Traktor t = (Traktor)it.getNext();
-			if(t.getEinsatzart() instanceof Drillmaschine) { //duengen
-				sum_saen += t.getBetriebsstunden();
-			}
-		}
-		return sum_saen;
+		return sum;
 	}
 
 	public double avgBetriebsstundenDuenger() {
 		double avg_duengen = 0;
-		avg_duengen = getBetriebstundenDuengerTraktoren()/getAnzDuengerTraktoren();
+		avg_duengen = getBetriebstundenEinsatzart(Duengerstreuer.class)/getAnzEinsatzart(Duengerstreuer.class);
 		System.out.println("Durchschnitt Betriebsstunden Duengerstreuer:  " +avg_duengen);
 		return avg_duengen;
 	}
 
 	public double avgBetriebsstundenDrill() {
 		double avg_saen = 0;
-		avg_saen = getBetriebstundenDrillTraktoren()/getAnzDrillTraktoren();
-		System.out.println("Durchschnitt Betriebsstunden Duengerstreuer:  " +avg_saen);
+		avg_saen = getBetriebstundenEinsatzart(Drillmaschine.class)/getAnzEinsatzart(Drillmaschine.class);
+		System.out.println("Durchschnitt Betriebsstunden Drillmaschinen:  " +avg_saen);
 		return avg_saen;
 	}
 
 	public double avgBetriebsstundenEinsatz() {
 		double avg = 0;
-		avg = (getBetriebstundenDuengerTraktoren()+getBetriebstundenDrillTraktoren())/(getAnzDuengerTraktoren()+getAnzDrillTraktoren());
+		avg = (getBetriebstundenEinsatzart(Duengerstreuer.class)+getBetriebstundenEinsatzart(Drillmaschine.class))
+				/(getAnzEinsatzart(Duengerstreuer.class)+getAnzEinsatzart(Drillmaschine.class));
 
 		avgBetriebsstundenDuenger();
 		avgBetriebsstundenDrill();
-		System.out.println("Durchschnitt Traktoren gesamt:               " +avg);
+		System.out.println("Durchschnitt Traktoren gesamt:                " +avg);
 
 		return avg;
 	}

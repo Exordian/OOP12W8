@@ -6,29 +6,7 @@
  *
  */
 public class Test {
-	
 	public static void main(String[] args) {
-		/*
-		LinkedList list = new LinkedList();
-		list.append(new Integer(1));
-		list.append(new Integer(2));
-		list.append(new Integer(3));
-		
-		list.prepend(new Integer(4));
-		list.prepend(new Integer(5));
-		
-		System.out.println(list);
-		
-		list.remove(new Integer(3));
-		System.out.println(list);
-		
-		list.remove(new Integer(5));
-		System.out.println(list);
-		
-		list.remove(new Integer(1));
-		System.out.println(list);
-		*/
-		
 		Bauernhof bauernhof = new Bauernhof("Mein Bauernhof");
 		
 		LinkedList list = new LinkedList();
