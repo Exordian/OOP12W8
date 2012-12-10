@@ -5,6 +5,7 @@
  * @since December 2012
  *
  */
+@Writer("Florian Schuster")
 public class Bauernhof {
 
 	private final String name;

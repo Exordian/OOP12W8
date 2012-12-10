@@ -5,6 +5,7 @@
  * @since December 2012
  *
  */
+@Writer("Lena Lenz")
 public abstract class Traktor {
 	
 	private static int IDnummer = 1;

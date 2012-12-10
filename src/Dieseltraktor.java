@@ -5,6 +5,7 @@
  * @since December 2012
  *
  */
+@Writer("Lena Lenz")
 public class Dieseltraktor extends Traktor {
 	
 	private int liter;

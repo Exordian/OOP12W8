@@ -5,16 +5,17 @@
  * @since December 2012
  *
  */
+@Writer("Florian Schuster")
 public class Duengerstreuer implements Einsatzart {
 	
-	private float kapazität;
+	private float kapazitaet;
 	
 	public Duengerstreuer(float kapazitaet) {
-		this.kapazität = kapazitaet;
+		this.kapazitaet = kapazitaet;
 	}
 	
 	public float getKapazitaet() {
-		return this.kapazität;
+		return this.kapazitaet;
 	}
 
 }

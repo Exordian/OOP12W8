@@ -5,6 +5,7 @@
  * @since December 2012
  *
  */
+@Writer("Florian Schuster")
 public interface Einsatzart {
 
 }

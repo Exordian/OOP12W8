@@ -6,6 +6,7 @@
  * @since December 2012
  *
  */
+@Writer("Lena Lenz")
 public class Node {
 
 	private Node next;
