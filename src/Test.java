@@ -1,7 +1,5 @@
-import java.lang.Package;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+
 /**
  *
  * @author Englisch (e1125164), Lenz (e1126963), Schuster (e1025700)
