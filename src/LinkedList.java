@@ -6,7 +6,7 @@
  *
  */
 @Writer("Lena Lenz")
-public class LinkedList {
+public abstract class LinkedList {
 	
 	protected Node head;
 	protected Node tail;
@@ -18,11 +18,11 @@ public class LinkedList {
 		this.size = 0;
 	}
 	
-	public Node getHead() {
+	protected Node getHead() {
 		return this.head;
 	}
 	
-	public void append(Object o) {
+	protected void append(Object o) {
 		if(tail == null)
 			tail = head = new Node(null, null, o);
 		else {
@@ -33,7 +33,7 @@ public class LinkedList {
 		size++;
 	}
 	
-	public void prepend(Object o) {
+	protected void prepend(Object o) {
 		if(head == null) //head && tail null
 			tail = head = new Node(null, null, o);
 		else {
@@ -44,7 +44,7 @@ public class LinkedList {
 		size++;
 	}
 	
-	public Node find(Object o) {
+	protected Node find(Object o) {
 		Node temp = null;
 		for(temp = head; temp != null; temp = temp.getNext()) {
 			if(temp.equals(o)) 
@@ -53,7 +53,7 @@ public class LinkedList {
 		return temp;
 	}
 	
-	public Object remove(Object o) {
+	protected Object remove(Object o) {
 		Node n = this.find(o);
 		Object ret = null;
 		
@@ -80,7 +80,7 @@ public class LinkedList {
 		return ret;
 	}
 	
-	public int getSize() {
+	protected int getSize() {
 		return this.size;
 	}
 	

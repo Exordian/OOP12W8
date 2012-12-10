@@ -6,11 +6,11 @@
  *
  */
 @Writer("Lena Lenz")
-public class ObjectIterator {
+public abstract class ObjectIterator {
 	
-	private LinkedList list;
-	private int cur_index;
-	private Node node;
+	protected LinkedList list;
+	protected int cur_index;
+	protected Node node;
 	
 	
 	public ObjectIterator(LinkedList list) {
@@ -19,11 +19,11 @@ public class ObjectIterator {
 		this.node = null;
 	}
 	
-	public boolean hasNext() {
+	protected boolean hasNext() {
 		return this.cur_index < this.list.getSize();
 	}
 	
-	public Object getNext() {
+	protected Object getNext() {
 		if(cur_index == 0)
 			node = list.getHead();
 		Object ret = this.node.getData();

@@ -1,4 +1,11 @@
 
+/**
+ *
+ * @author Englisch (e1125164), Lenz (e1126963), Schuster (e1025700)
+ * @since December 2012
+ *
+ */
+@Writer("Lena Lenz")
 public class BauernhofMap {
 	
 	private BauernhofList keys;
@@ -18,10 +25,10 @@ public class BauernhofMap {
 	}
 	
 	public boolean containsKey(Bauernhof b) {
-		ObjectIterator it = new ObjectIterator(this.keys);
+		BauernhofIterator it = new BauernhofIterator(this.keys);
 		Bauernhof elem = null;
 		while(it.hasNext()) {
-			elem = (Bauernhof)it.getNext();
+			elem = it.getNext();
 			if(elem.getName().equals(b.getName()))
 				return true;
 		}
@@ -30,16 +37,16 @@ public class BauernhofMap {
 	}
 	
 	public Bauernhof getKey(Traktor t) {
-		ObjectIterator it = new ObjectIterator(this.keys);
+		BauernhofIterator it = new BauernhofIterator(this.keys);
 		Bauernhof b = null;
 		TraktorList list = null;
 		Traktor elem = null;
 		while(it.hasNext()) { //first iterate through farms
-			b = (Bauernhof)it.getNext();
+			b = it.getNext();
 			list = b.getTraktorList();
-			ObjectIterator traktoren = new ObjectIterator(list);
+			TraktorIterator traktoren = new TraktorIterator(list);
 			while(traktoren.hasNext()) { //next iterate through corresponding lists of tractors
-				elem = (Traktor)traktoren.getNext();
+				elem = traktoren.getNext();
 				if(elem.getID() == t.getID())
 					return b;
 			}
@@ -90,11 +97,11 @@ public class BauernhofMap {
 	
 	public String toString() {
 		StringBuffer buf = new StringBuffer();
-		ObjectIterator it = new ObjectIterator(this.keys);
+		BauernhofIterator it = new BauernhofIterator(this.keys);
 		Bauernhof b = null;
 		buf.append("Map enthaelt: \n");
 		while(it.hasNext()) {
-			b = (Bauernhof)it.getNext();
+			b = it.getNext();
 			buf.append("KEY: "+ b.getName());
 			buf.append('\n');
 			buf.append("VALUES:\n"+ b.getTraktorList().toString());
