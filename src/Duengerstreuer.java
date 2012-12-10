@@ -9,11 +9,11 @@ public class Duengerstreuer implements Einsatzart {
 	
 	private float kapazität;
 	
-	public Duengerstreuer(float kapazität) {
-		this.kapazität = kapazität;
+	public Duengerstreuer(float kapazitaet) {
+		this.kapazität = kapazitaet;
 	}
 	
-	public float getKapazität() {
+	public float getKapazitaet() {
 		return this.kapazität;
 	}
 

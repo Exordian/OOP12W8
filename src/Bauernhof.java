@@ -30,9 +30,9 @@ public class Bauernhof {
 	public String getName() {
 		return this.name;
 	}
-	
+
 	/*------------------------------------------------------------------------------------------*/
-	
+
 	private<T extends Einsatzart> int getAnzEinsatzart(Class<T> trk) {
 		int count = 0;
 		ObjectIterator it = new ObjectIterator(this.traktoren);
@@ -83,7 +83,7 @@ public class Bauernhof {
 
 		return avg;
 	}
-	
+
 	/*------------------------------------------------------------------------------------------*/
 
 	private <T extends Traktor> int getBetriebstundenAntrieb(Class<T> trk) {
@@ -137,9 +137,9 @@ public class Bauernhof {
 
 		return avg;
 	}
-	
+
 	/*------------------------------------------------------------------------------------------*/
-		
+
 	private <T extends Einsatzart> double getDieselMenge(Class<T> trk) {
 		double diesel = 0;
 		ObjectIterator it = new ObjectIterator(this.traktoren);
@@ -253,13 +253,51 @@ public class Bauernhof {
 
 		return avg;
 	}
-	
+
 	/*------------------------------------------------------------------------------------------*/
-	
-	
-	
+
+
+
 	/*------------------------------------------------------------------------------------------*/
-	
-	
-	
+
+	private <T extends Traktor> float getKapazitaetDuenger(Class<T> trk) {
+		float kapa = 0;
+		ObjectIterator it = new ObjectIterator(this.traktoren);
+
+		while(it.hasNext()) {
+			Traktor t = (Traktor)it.getNext();
+			if(trk.isInstance(t)) {
+				if (t.getEinsatzart() instanceof Duengerstreuer) {
+					kapa += ((Duengerstreuer) t.getEinsatzart()).getKapazitaet();
+				}
+			}
+		}
+		return kapa;
+	}
+
+	public float avgDuengerKapazitaetDiesel() {
+		float avg = 0;
+		avg = getKapazitaetDuenger(Dieseltraktor.class)/getAnzDieselEinsatzart(Duengerstreuer.class);
+		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer mit Diesel: " +avg);
+		return avg;
+	}
+
+	public float avgDuengerKapazitaetGas() {
+		float avg = 0;
+		avg = getKapazitaetDuenger(Biogastraktor.class)/getAnzGasEinsatzart(Duengerstreuer.class);
+		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer mit Biogas: " +avg);
+		return avg;
+	}
+
+	public float avgDuengerKapazitaet() {
+		float avg = 0;
+		avg = (getKapazitaetDuenger(Dieseltraktor.class)+getKapazitaetDuenger(Biogastraktor.class))/
+				(getAnzDieselEinsatzart(Duengerstreuer.class)+getAnzGasEinsatzart(Duengerstreuer.class));
+
+		avgDuengerKapazitaetDiesel();
+		avgDuengerKapazitaetGas();
+		System.out.println("Durchschnitt Fassungskapazitaet Duengerstreuer gesamt:      " +avg);
+
+		return avg;
+	}
 }
