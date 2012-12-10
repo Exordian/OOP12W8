@@ -44,19 +44,6 @@ public class Bauernhof {
 		return sum_diesel;
 	}
 
-	private int getAnzDieselTraktoren() {
-		int count_diesel = 0;
-		ObjectIterator it = new ObjectIterator(this.traktoren);
-
-		while(it.hasNext()) {
-			Traktor t = (Traktor)it.getNext();
-			if(t instanceof Dieseltraktor) {
-				count_diesel++;
-			}
-		}
-		return count_diesel;
-	}
-
 	private int getBetriebstundenGasTraktoren() {
 		int sum_gas = 0;
 		ObjectIterator it = new ObjectIterator(this.traktoren);
@@ -68,6 +55,19 @@ public class Bauernhof {
 			}
 		}
 		return sum_gas;
+	}
+
+	private int getAnzDieselTraktoren() {
+		int count_diesel = 0;
+		ObjectIterator it = new ObjectIterator(this.traktoren);
+
+		while(it.hasNext()) {
+			Traktor t = (Traktor)it.getNext();
+			if(t instanceof Dieseltraktor) {
+				count_diesel++;
+			}
+		}
+		return count_diesel;
 	}
 
 	private int getAnzGasTraktoren() {
@@ -135,48 +135,48 @@ public class Bauernhof {
 	}
 	/*
 	public double avgDieselVerbrauchDrill() {
-		
+
 	}
 
-	public double avgDieselVerbrauchDünger() {
-		
+	public double avgDieselVerbrauchDuenger() {
+
 	}
 
 	public double avgDieselVerbrauch() {
 
 	}
-	
+
 	public double avgGasVerbrauchDrill() {
-		
+
 	}
 
-	public double avgGasVerbrauchDünger() {
-		
+	public double avgGasVerbrauchDuenger() {
+
 	}
 
 	public double avgGasVerbrauch() {
 
 	}
-*/
-	private int getAnzDüngerTraktoren() {
+	 */
+	private int getAnzDuengerTraktoren() {
 		int count_duengen = 0;
 		ObjectIterator it = new ObjectIterator(this.traktoren);
 		while(it.hasNext()) {
 			Traktor t = (Traktor)it.getNext();
-			if(t.getEinsatzart() instanceof Düngerstreuer) { //duengen
+			if(t.getEinsatzart() instanceof Duengerstreuer) { //duengen
 				count_duengen++;
 			}
 		}
 		return count_duengen;
 	}
 
-	private int getBetriebstundenDüngerTraktoren() {
+	private int getBetriebstundenDuengerTraktoren() {
 		int sum_duengen = 0;
 
 		ObjectIterator it = new ObjectIterator(this.traktoren);
 		while(it.hasNext()) {
 			Traktor t = (Traktor)it.getNext();
-			if(t.getEinsatzart() instanceof Düngerstreuer) { //duengen
+			if(t.getEinsatzart() instanceof Duengerstreuer) { //duengen
 				sum_duengen += t.getBetriebsstunden();
 			}
 		}
@@ -208,25 +208,25 @@ public class Bauernhof {
 		return sum_saen;
 	}
 
-	public double avgBetriebsstundenDünger() {
+	public double avgBetriebsstundenDuenger() {
 		double avg_duengen = 0;
-		avg_duengen = getBetriebstundenDüngerTraktoren()/getAnzDüngerTraktoren();
-		System.out.println("Durchschnitt Betriebsstunden Düngerstreuer:  " +avg_duengen);
+		avg_duengen = getBetriebstundenDuengerTraktoren()/getAnzDuengerTraktoren();
+		System.out.println("Durchschnitt Betriebsstunden Duengerstreuer:  " +avg_duengen);
 		return avg_duengen;
 	}
 
 	public double avgBetriebsstundenDrill() {
 		double avg_saen = 0;
 		avg_saen = getBetriebstundenDrillTraktoren()/getAnzDrillTraktoren();
-		System.out.println("Durchschnitt Betriebsstunden Düngerstreuer:  " +avg_saen);
+		System.out.println("Durchschnitt Betriebsstunden Duengerstreuer:  " +avg_saen);
 		return avg_saen;
 	}
 
 	public double avgBetriebsstundenEinsatz() {
 		double avg = 0;
-		avg = (getBetriebstundenDüngerTraktoren()+getBetriebstundenDrillTraktoren())/(getAnzDüngerTraktoren()+getAnzDrillTraktoren());
+		avg = (getBetriebstundenDuengerTraktoren()+getBetriebstundenDrillTraktoren())/(getAnzDuengerTraktoren()+getAnzDrillTraktoren());
 
-		avgBetriebsstundenDünger();
+		avgBetriebsstundenDuenger();
 		avgBetriebsstundenDrill();
 		System.out.println("Durchschnitt Traktoren gesamt:               " +avg);
 

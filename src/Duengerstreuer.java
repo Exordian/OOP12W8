@@ -5,11 +5,11 @@
  * @since December 2012
  *
  */
-public class Düngerstreuer implements Einsatzart {
+public class Duengerstreuer implements Einsatzart {
 	
 	private float kapazität;
 	
-	public Düngerstreuer(float kapazität) {
+	public Duengerstreuer(float kapazität) {
 		this.kapazität = kapazität;
 	}
 	

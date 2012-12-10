@@ -49,7 +49,7 @@ public class Test {
 		b3.setBetriebsstunden(5);
 		
 		d1.setEinsatzart(new Drillmaschine(100));
-		b1.setEinsatzart(new Düngerstreuer(100));
+		b1.setEinsatzart(new Duengerstreuer(100));
 		
 		list.append(d1);
 		list.append(d2);
