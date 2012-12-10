@@ -1,4 +1,4 @@
-
+@Writer("Lena Lenz")
 public class BauernhofList extends LinkedList {
 	
 	public void append(Bauernhof b) {

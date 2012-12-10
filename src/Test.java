@@ -44,8 +44,12 @@ public class Test {
 		System.out.println(list.find(b1).getData()); //find b1
 
 		bauernhof.addTraktorList(list);
-		System.out.println(bauernhof.avgBetriebsstundenArt());
-		System.out.println(bauernhof.avgBetriebsstundenEinsatz());
+		try {
+			System.out.println(bauernhof.avgBetriebsstundenArt());
+			System.out.println(bauernhof.avgBetriebsstundenEinsatz());
+		} catch (DivisionByNullException e) {
+			System.out.println("division by zero catched");
+		}
 
 		// Bauernhof 2
 		Bauernhof bauernhof2 = new Bauernhof("Mein 2. Bauernhof");
@@ -86,17 +90,22 @@ public class Test {
 		// Reflection Test
 		System.out.println("\n\nReflection Tests:");
 		System.out.print(getClassMethodWriters(Bauernhof.class));
+		System.out.print(getClassMethodWriters(BauernhofIterator.class));
+		System.out.print(getClassMethodWriters(BauernhofList.class));
+		System.out.print(getClassMethodWriters(BauernhofMap.class));
 		System.out.print(getClassMethodWriters(Biogastraktor.class));
 		System.out.print(getClassMethodWriters(Dieseltraktor.class));
+		System.out.print(getClassMethodWriters(DivisionByNullException.class));
 		System.out.print(getClassMethodWriters(Drillmaschine.class));
 		System.out.print(getClassMethodWriters(Duengerstreuer.class));
 		System.out.print(getClassMethodWriters(Einsatzart.class));
 		System.out.print(getClassMethodWriters(LinkedList.class));
 		System.out.print(getClassMethodWriters(Node.class));
-		System.out.print(getClassMethodWriters(BauernhofMap.class));
 		System.out.print(getClassMethodWriters(ObjectIterator.class));
 		System.out.print(getClassMethodWriters(Test.class));
 		System.out.print(getClassMethodWriters(Traktor.class));
+		System.out.print(getClassMethodWriters(TraktorIterator.class));
+		System.out.print(getClassMethodWriters(TraktorList.class));
 		System.out.print(getClassMethodWriters(Writer.class));
 	}
 

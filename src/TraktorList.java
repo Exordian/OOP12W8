@@ -1,4 +1,4 @@
-
+@Writer("Lena Lenz")
 public class TraktorList extends LinkedList {
 	
 	public void append(Traktor t) {
