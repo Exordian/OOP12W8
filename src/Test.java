@@ -7,13 +7,13 @@ import java.lang.reflect.Method;
  *
  */
 /**
- * Info: Bauernhof gibt keine Werte zurück, da die Ausgabe nur in der Testklasse benötigt wird, und somit zur
+ * Info: Bauernhof gibt keine Werte zurueck, da die Ausgabe nur in der Testklasse benoetigt wird, und somit zur
  * 		 vereinfachung direkt String ausgaben genommen wurden
  * 		
  * 		 Bauernhof:
- * 		 Weiters wird um nochmal code wiederverwendung zu verzichten auf den generischen Typ Class zurückgegriffen
- * 		 Da dies ein Teil von Reflection ist, meinen wir das dieser erlaubt ist, ähnlich wie getMethods - sollte eine
- * 		 Erklärung dafür notwendig sein
+ * 		 Weiters wird um nochmal code wiederverwendung zu verzichten auf den generischen Typ Class zurueckgegriffen
+ * 		 Da dies ein Teil von Reflection ist, meinen wir das dieser erlaubt ist, aehnlich wie getMethods - sollte eine
+ * 		 Erklaerung dafuer notwendig sein
  */
 @Writer("Lena Lenz")
 public class Test {
