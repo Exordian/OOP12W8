@@ -10,12 +10,12 @@ public class Dieseltraktor extends Traktor {
 	
 	private int liter;
 	
-	public Dieseltraktor() {
-		super();
+	public Dieseltraktor(Einsatzart e) {
+		super(e);
 	}
 		
-	public Dieseltraktor(int liter) {
-		super();
+	public Dieseltraktor(Einsatzart e, int liter) {
+		super(e);
 		this.liter = liter;
 	}
 	

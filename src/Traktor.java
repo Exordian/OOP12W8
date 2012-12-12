@@ -13,9 +13,10 @@ public abstract class Traktor {
 	private int betriebsstunden;
 	protected Einsatzart einsatzart;
 	
-	public Traktor() {
-		this.id = Traktor.IDnummer;
-		Traktor.IDnummer++;
+	public Traktor(Einsatzart e) {
+		this.id = Traktor.IDnummer++;
+		einsatzart = e;
+		betriebsstunden = 0;
 	}
 	
 	public int getID() {

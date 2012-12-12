@@ -10,12 +10,12 @@ public class Biogastraktor extends Traktor {
 	
 	private float gas;
 	
-	public Biogastraktor() {
-		super();
+	public Biogastraktor(Einsatzart e) {
+		super(e);
 	}
 	
-	public Biogastraktor(float gas) {
-		super();
+	public Biogastraktor(Einsatzart e, float gas) {
+		super(e);
 		this.gas = gas;
 	}
 
