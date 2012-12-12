@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
  * 		 Da dies ein Teil von Reflection ist, meinen wir das dieser erlaubt ist, aehnlich wie getMethods - sollte eine
  * 		 Erklaerung dafuer notwendig sein
  */
-@Writer("Lena Lenz")
+@Writer("Jakob Englisch")
 public class Test {
 	public static void main(String[] args) {
 

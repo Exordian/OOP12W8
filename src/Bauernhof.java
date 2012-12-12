@@ -85,7 +85,7 @@ public class Bauernhof {
 			throw new DivisionByNullException();
 		}
 		avg_duengen = getBetriebstundenEinsatzart(Duengerstreuer.class)/nenner;
-		return "Durchschnitt Betriebsstunden Duengerstreuer:  " +avg_duengen;
+		return "Durchschnitt Betriebsstunden Duengerstreuer: " +avg_duengen;
 		//returns average of operating hours of tractors with fertilizer
 	}
 
@@ -96,7 +96,7 @@ public class Bauernhof {
 			throw new DivisionByNullException();
 		}
 		avg_saen = getBetriebstundenEinsatzart(Drillmaschine.class)/nenner;
-		return "Durchschnitt Betriebsstunden Drillmaschinen:  " +avg_saen;
+		return "Durchschnitt Betriebsstunden Drillmaschinen: " +avg_saen;
 		//returns average of operating hours of tractors with drill machine
 	}
 
@@ -111,7 +111,7 @@ public class Bauernhof {
 		String tmp = "";
 		tmp += avgBetriebsstundenDuenger() + "\n";
 		tmp += avgBetriebsstundenDrill() + "\n";
-		return tmp + "Durchschnitt Traktoren gesamt:                " +avg;
+		return tmp + "Durchschnitt Traktoren gesamt: " +avg;
 		//returns average of operating hours of tractors with fertilizer/drill machine
 	}
 
@@ -180,7 +180,7 @@ public class Bauernhof {
 		String tmp = "";
 		tmp += avgBetriebsstundenDiesel() + "\n";
 		tmp += avgBetriebsstundenGas() + "\n";
-		return tmp + "Durchschnitt Traktoren gesamt:                " +avg;
+		return tmp + "Durchschnitt Traktoren gesamt: " +avg;
 		//returns average of operating hours of biogas/diesel tractors
 	}
 
@@ -253,7 +253,7 @@ public class Bauernhof {
 		String tmp = "";
 		tmp += avgDieselVerbrauchDrill() + "\n";
 		tmp += avgDieselVerbrauchDuenger() + "\n";
-		return tmp + "Durchschnitt Dieselverbrauch gesamt:                " +avg;
+		return tmp + "Durchschnitt Dieselverbrauch gesamt: " +avg;
 		//returns average diesel consumption
 	}
 
@@ -323,7 +323,7 @@ public class Bauernhof {
 		String tmp = "";
 		tmp += avgGasVerbrauchDrill() + "\n";
 		tmp += avgGasVerbrauchDuenger() + "\n";
-		return tmp + "Durchschnitt Biogasverbrauch gesamt:                " +avg;
+		return tmp + "Durchschnitt Biogasverbrauch gesamt: " +avg;
 
 		//returns average gas consumption
 	}
@@ -373,13 +373,13 @@ public class Bauernhof {
 
 	public String AnzSaescharenDiesel() {
 		return "Min Anzahl Saescharen Diesel: " +getMinDrill(Dieseltraktor.class) +
-				"\nMax Anzahl Saescharen Diesel" + getMaxDrill(Dieseltraktor.class);
+				"\nMax Anzahl Saescharen Diesel: " + getMaxDrill(Dieseltraktor.class);
 		//prints number of sowing coulters of diesel tractors
 	}
 
 	public String AnzSaescharenBiogas() {
 		return "Min Anzahl Saescharen Biogas: " +getMinDrill(Biogastraktor.class) +
-				"\nMax Anzahl Saescharen Biogas" + getMaxDrill(Biogastraktor.class);
+				"\nMax Anzahl Saescharen Biogas: " + getMaxDrill(Biogastraktor.class);
 		//prints number of sowing coulters of biogas tractors
 	}
 
@@ -388,7 +388,7 @@ public class Bauernhof {
 		int min = getMinDrill(Biogastraktor.class) + getMinDrill(Dieseltraktor.class);
 
 		return "Min Anzahl Saescharen: " + min +
-				"\nMax Anzahl Saescharen" + max;
+				"\nMax Anzahl Saescharen: " + max;
 		//prints number of sowing coulters
 	}
 
@@ -445,7 +445,7 @@ public class Bauernhof {
 		String tmp = "";
 		tmp += avgDuengerKapazitaetDiesel() + "\n";
 		tmp += avgDuengerKapazitaetGas() + "\n";
-		return tmp + "Durchschnitt Fassungskapazitaet Duengerstreuer gesamt:      " +avg;
+		return tmp + "Durchschnitt Fassungskapazitaet Duengerstreuer gesamt: " +avg;
 		//returns average of capacity of fertilizer
 	}
 }
